@@ -10,7 +10,8 @@
     url("https://db.onlinewebfonts.com/t/29ddb4605533a38e086b48fa105e0d12.svg#Nohemi")format("svg");
 }
 body {
-  margin: 48px;
+  margin: auto;
+  margin-top: 58px;
   width: 1213px;
   display: flex;
   justify-content: center;
@@ -97,7 +98,8 @@ h1 {
   text-align: center;
   padding: 44px 32px 32px 206px;
 }
-.layout-red .card-content h1, h2 {
+.layout-red .card-content h1, 
+.layout-red .card-content h2 {
   text-align: right;
 }
 
