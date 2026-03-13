@@ -1,111 +1,142 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+@import url(https://db.onlinewebfonts.com/c/29ddb4605533a38e086b48fa105e0d12?family=Nohemi);
+@font-face {
+    font-family: "Nohemi";
+    src: url("https://db.onlinewebfonts.com/t/29ddb4605533a38e086b48fa105e0d12.eot");
+    src: url("https://db.onlinewebfonts.com/t/29ddb4605533a38e086b48fa105e0d12.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/29ddb4605533a38e086b48fa105e0d12.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/29ddb4605533a38e086b48fa105e0d12.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/29ddb4605533a38e086b48fa105e0d12.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/29ddb4605533a38e086b48fa105e0d12.svg#Nohemi")format("svg");
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
 body {
-  margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  margin: 48px;
+  width: 1213px;
   display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+  justify-content: center;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+p, h2 {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+  font-family: "Nohemi";
+  font-weight: 700;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.text-color {
+  color: #1DA077
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 24px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.card {
+  position: relative;
+  min-height: 268px;
+  border-radius: 28px;
+  overflow: visible;
+  color: #ffffff;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.card-image {
+  position: absolute;
+  z-index: 1;
+}
+.card-red {
+  background: #F45B5B;
+}
+
+.card-teal {
+  background: #5492A0;
+}
+
+.card-purple {
+  background: #6C64A8;
+}
+
+.card-beige {
+  background: #A88964;
+}
+.card {
+  position: relative;
+  min-height: 268px;
+  border-radius: 28px;
+  overflow: visible;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.card-image {
+  position: absolute;
+  z-index: 1;
+}
+.layout-red .card-content {
+  width: 52%;
+  margin-left: auto;
+  text-align: center;
+  padding: 44px 32px 32px 206px;
+}
+.layout-red .card-content h1, h2 {
+  text-align: right;
+}
+
+.layout-red .card-image {
+  left: -68px;
+  bottom: -58px;
+  width: auto;
+}
+.layout-teal .card-content {
+  width: 52%;
+  text-align: left;
+  padding: 44px 0 32px 28px;
+}
+
+.layout-teal .card-image {
+  right: -8px;
+  top: -2px;
+  width: auto;
+}
+.layout-purple .card-content {
+  width: 62%;
+  margin: 0 200px;
+  text-align: right;
+  padding-top: 42px;
+}
+
+.layout-purple .card-image {
+  left: -76px;
+  bottom: -8px;
+  width: auto;
+}
+.layout-beige .card-content {
+  width: 58%;
+  text-align: left;
+  padding: 42px 0 32px 28px;
+}
+
+.layout-beige .card-image {
+  right: -48px;
+  bottom: -22px;
+  width: auto;
 }

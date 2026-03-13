@@ -1,120 +1,84 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React from 'react'
 
-function App() {
-  const [count, setCount] = useState(0)
+const features = [
+  {
+    title: "Start with Clarity",
+    subtitle: "Step into a better learning path.",
+    description:
+      "Overwhelmed by too many learning options? SkillShikshya provides a clear, curated roadmap from the start. Whether you're a beginner or upskilling, we have a path tailored to your growth.",
+    image: "/photo1.png",
+    variant: "red",
+    layout: "layout-red",
+    hoverReveal: true,
+  },
+  {
+    title: "Learn by Doing",
+    subtitle: "Practical skills, real projects.",
+    description:
+      "Theory is great, but action is better. At SkillShikshya, you learn by doing. Hands-on projects and real-world scenarios help you build, break, and create—leading to true mastery.",
+    image: "/photo2.png",
+    variant: "teal",
+    layout: "layout-teal",
+    hoverReveal: true,
+  },
+  {
+    title: "Get Mentored & Supported",
+    subtitle: "You're not learning alone.",
+    description:
+      "Stuck or need feedback? SkillShikshya’s community of mentors and learners has your back with live support, interactive discussions, and expert insights. You’re never on your own.",
+    image: "/photo3.png",
+    variant: "purple",
+    layout: "layout-purple",
+    hoverReveal: false,
+  },
+  {
+    title: "Achieve & Showcase",
+    subtitle: "Build your portfolio, get job-ready.",
+    description:
+      "Your journey ends with achievement. Each completed project builds a portfolio showcasing your skills and job readiness, bringing you closer to that dream job, promotion, or your own venture.",
+    image: "/photo4.png",
+    variant: "beige",
+    layout: "layout-beige",
+    hoverReveal: false,
+  },
+];
 
+const FeatureCard = ({ title, subtitle, description, image, variant, layout }) => {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className={`card card-${variant} ${layout}`}>
+      <div className="card-content">
+        <h1>{title}</h1>
+        <h2>{subtitle}</h2>
+        <p>{description}</p>
+      </div>
+      <img className="card-image" src={image} alt={title} />
+    </div>
+  );
+};
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+const App = () => {
+  return (
+    <section className="feature-section">
+      <div className="content">
+        <p>Your SkillShikshya Journey</p>
+        <h1>
+          <span className="text-color"> Step </span> In. <span className="text-color"> Skill </span> Up. <span className="text-color"> Step </span> Out. 🚀
+        </h1>
+      </div>
+      <div className="container">
+        {features.map((feature, index) => (
+          <FeatureCard
+            key={index}
+            title={feature.title}
+            subtitle={feature.subtitle}
+            description={feature.description}
+            image={feature.image}
+            variant={feature.variant}
+            layout={feature.layout}
+          />
+        ))}
+      </div>
+    </section>
   )
 }
 
