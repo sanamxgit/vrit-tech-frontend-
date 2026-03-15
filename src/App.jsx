@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const features = [
   {
@@ -10,6 +10,10 @@ const features = [
     variant: "red",
     layout: "layout-red",
     hoverReveal: true,
+    hoverPerson: "/person1.png",
+    hoverPersonShadow: "/shadow.png",
+    wowSticker: "/wow.png",
+    bgShape: "/subtract.png",
   },
   {
     title: "Learn by Doing",
@@ -20,6 +24,8 @@ const features = [
     variant: "teal",
     layout: "layout-teal",
     hoverReveal: true,
+    hoverPerson: "/person2.png",
+    bgShape: "/subtract-teal.png",
   },
   {
     title: "Get Mentored & Supported",
@@ -43,15 +49,50 @@ const features = [
   },
 ];
 
-const FeatureCard = ({ title, subtitle, description, image, variant, layout }) => {
+const FeatureCard = ({
+  title,
+  subtitle,
+  description,
+  image,
+  variant,
+  layout,
+  hoverReveal,
+  hoverPerson,
+  hoverPersonShadow,
+  wowSticker,
+  bgShape,
+}) => {
   return (
-    <div className={`card card-${variant} ${layout}`}>
-      <div className="card-content">
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
-        <p>{description}</p>
+    <div className={`card card-${variant} ${layout} ${hoverReveal ? "hover-card" : ""}`}>
+      <div className="card-face card-front">
+        <div className="card-content">
+          <h1>{title}</h1>
+          <h2>{subtitle}</h2>
+          <p>{description}</p>
+        </div>
+        <img className="card-image" src={image} alt={title} />
       </div>
-      <img className="card-image" src={image} alt={title} />
+
+      {hoverReveal && (
+        <div className="card-face card-back">
+          <img className="hover-bg" src={bgShape} alt="" />
+          <img className="hover-person-shadow" src={hoverPersonShadow} alt={title} />
+          <img className="hover-person" src={hoverPerson} alt={title} />
+          <img className="wow wow-top" src={wowSticker} alt="" />
+          <img className="wow wow-bottom" src={wowSticker} alt="" />
+
+          <h4 className="hover-text">
+            Clarity unlocked—stickers, sips, and skills all in one go!
+          </h4>
+
+          <button className="arrow arrow-left" type="button" aria-label="Previous">
+            <img src="/arrow-left.png" alt="arrow-left" />
+          </button>
+          <button className="arrow arrow-right" type="button" aria-label="Next">
+            <img src="/arrow-right.png" alt="arrow-right" />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
@@ -62,24 +103,32 @@ const App = () => {
       <div className="content">
         <p>Your SkillShikshya Journey</p>
         <h1>
-          <span className="text-color"> Step </span> In. <span className="text-color"> Skill </span> Up. <span className="text-color"> Step </span> Out. 🚀
+          <span className="text-color">Step</span> In.{" "}
+          <span className="text-color">Skill</span> Up.{" "}
+          <span className="text-color">Step</span> Out. 🚀
         </h1>
       </div>
+
       <div className="container">
-        {features.map((feature, index) => (
+        {features.map((feature) => (
           <FeatureCard
-            key={index}
+            key={feature.title}
             title={feature.title}
             subtitle={feature.subtitle}
             description={feature.description}
             image={feature.image}
             variant={feature.variant}
             layout={feature.layout}
+            hoverReveal={feature.hoverReveal}
+            hoverPersonShadow={feature.hoverPersonShadow}
+            hoverPerson={feature.hoverPerson}
+            wowSticker={feature.wowSticker}
+            bgShape={feature.bgShape}
           />
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default App
+export default App;
