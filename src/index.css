@@ -37,13 +37,14 @@ body {
   font-size: 20px;
   font-weight: 400;
   line-height: 1.4;
+  text-align: left;
   color: #252525;
 }
 
 .content > h1 {
   margin: 0;
   font-family: "Nohemi", sans-serif;
-  font-size: 64px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.1;
   color: #252525;
@@ -59,6 +60,7 @@ h2 {
 h1 {
   font-family: "Nohemi", sans-serif;
   font-weight: 700;
+  text-align: left;
 }
 
 .text-color {
@@ -219,9 +221,6 @@ h1 {
 }
 
 
-.hover-card {
-  overflow: hidden;
-}
 
 .hover-card .card-front {
   opacity: 1;
@@ -247,26 +246,33 @@ h1 {
   pointer-events: auto;
 }
 
-/* .hover-bg {
+.hover-bg {
   position: absolute;
-  inset: 0;
+  /* inset: 0; */
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 28px;
-} */
-
-.hover-person {
+}
+.card-teal .card-back .hover-person {
   position: absolute;
-  left: 46px;
+  left: 58%;
+  transform: translateX(-50%);
+  width: 532px;
   bottom: 0;
-  width: 330px;
+  z-index: 3;
+}
+.card-red .card-back .hover-person {
+  position: absolute;
+  left: 42px;
+  bottom: 0;
+  width: 346px;
   z-index: 2;
   pointer-events: none;
-}
+} 
 .hover-person-shadow {
   position: absolute;
-  left: 58px;
+  left: 64px;
   bottom: 0;
   width: 330px;
   z-index: 2;
@@ -276,7 +282,7 @@ h1 {
 .hover-text {
   position: absolute;
   top: 78px;
-  right: 46px;
+  right: 42px;
   transform: translateY(-50%);
   width: 241px;
   margin: 0;
@@ -285,6 +291,18 @@ h1 {
   font-size: 20px;
   font-weight: 700;
   line-height: 120%;
+  z-index: 3;
+}
+
+.card-teal .card-back .hover-text {
+  top: 40px;
+  left: 160px;
+  right: auto;
+  transform: translateX(-50%);
+  width: 241px;
+  text-align: left;
+  font-size: 20px;
+  line-height: 1.15;
   z-index: 3;
 }
 
@@ -307,9 +325,10 @@ h1 {
   transform: rotate(46.52deg);
 }
 
+
 .arrow {
   position: absolute;
-  top: 54%;
+  top: 50%;
   width: 62px;
   height: 62px;
   border: none;
